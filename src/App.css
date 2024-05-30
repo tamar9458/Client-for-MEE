@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.header-buttons {
+  color: #0076ce;
+  background-color: #f5f5f5;
+  margin-right: 10px;
+}
+
+.list {
+  background-color: white;
+  height: 100%;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.header {
+  background-color: #0076ce;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.header div {
+  cursor: pointer;
+}
+
+.header div:hover {
+  text-decoration: underline;
+}
+
+.header Button {
+  background-color: #0076ce;
+  color: white;
+}
