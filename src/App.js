@@ -13,14 +13,19 @@ import { jwtDecode } from 'jwt-decode';
 import EmployeeDetails from './pages/employees/EmployeeDetails';
 
 export const API_URL = `https://localhost:7282/api`
+const ExampleJWT = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+                    eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia
+                    WF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`
 export function decode(user, typeDecode) {
   if (user) {
     const decodedToken = jwtDecode(user);
-    return typeDecode == 1 ?decodedToken.Permission: decodedToken.Name
+    return typeDecode == 1 ? decodedToken.Permission : decodedToken.Name
   }
-  else if (localStorage.getItem('accessToken') != "null") {
-    const decodedToken = jwtDecode(localStorage.getItem('accessToken'));
-    return typeDecode == 1 ? decodedToken.Permission: decodedToken.Name
+  else {
+    const localUser = localStorage.getItem('accessToken')
+    if (localUser != "null") {
+      const decodedToken = jwtDecode(localUser ? localUser : ExampleJWT)
+    }
   }
   return 0
 }
