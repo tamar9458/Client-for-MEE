@@ -5,7 +5,7 @@ import { AppBar, Toolbar, Button } from '@mui/material';
 import Swal from 'sweetalert2';
 import '../App.css'
 
-export default () => {
+const Header = () => {
     const user = useSelector(state => state.user.user);
     const navigate = useNavigate();
     const buttonStyle = {
@@ -57,3 +57,5 @@ export default () => {
         </AppBar>
     </>
 }
+
+export default Header;

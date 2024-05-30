@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { Dialog, DialogTitle, DialogContent } from '@mui/material';
 
-export default () => {
+const EmployeeDetails = () => {
     const { state } = useLocation()
     const navigate = useNavigate()
     const [open, setOpen] = useState(true)
@@ -20,7 +20,7 @@ export default () => {
                 <div>Tz : {state.tz}</div>
                 <div>Birth Date : {state.birthDate?.split('T')[0]}</div>
                 <div>Start Date : {state.startDate?.split('T')[0]}</div>
-                <div>Gender: {state.gender == 1 ? "male" : "female"}</div>
+                <div>Gender: {state.gender === 1 ? "male" : "female"}</div>
                 <h5>Roles:</h5>
                 {state.roles?.map((item, i) => (
                     <div key={i}>
@@ -31,3 +31,4 @@ export default () => {
         </Dialog>
     </>
 }
+export default EmployeeDetails;

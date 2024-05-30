@@ -19,12 +19,13 @@ const ExampleJWT = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
 export function decode(user, typeDecode) {
   if (user) {
     const decodedToken = jwtDecode(user);
-    return typeDecode == 1 ? decodedToken.Permission : decodedToken.Name
+    return typeDecode === 1 ? decodedToken.Permission : decodedToken.Name
   }
   else {
     const localUser = localStorage.getItem('accessToken')
-    if (localUser != "null") {
+    if (localUser !== "null") {
       const decodedToken = jwtDecode(localUser ? localUser : ExampleJWT)
+      return typeDecode === 1 ? decodedToken.Permission : decodedToken.Name
     }
   }
   return 0
@@ -44,6 +45,7 @@ function App() {
   const navigate = useNavigate()
   useEffect(() => {
     navigate('/home')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <div className="App">

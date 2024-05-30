@@ -36,7 +36,7 @@ export const getEmployees = (byUser, search, navigate) => {
                         (x.tz && x.tz.includes(search)) ||
                         (x.startDate && x.startDate.includes(search)) ||
                         searchValueInRoles(x.roles, search) ||
-                        (search == '')
+                        (search === '')
                     )
                     dispatch({ type: "SET_EMPLOYEE", data: filteredEmployee })
                 })

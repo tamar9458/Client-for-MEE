@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Home.css';
 
-export default () => {
+const Home =() => {
   useEffect(() => {
     const textContainer = document.querySelector('.text-container')
     const words1 = "Manage employees easily."
@@ -35,3 +35,4 @@ export default () => {
   );
 }
 
+export default Home;

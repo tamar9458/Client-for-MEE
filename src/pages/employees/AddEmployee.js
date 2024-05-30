@@ -5,7 +5,7 @@ import { useFieldArray, useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { getAllRoles } from "../../service/roles"
-import { TextField, Button, Select, MenuItem, FormControl, InputLabel, FormControlLabel, FormLabel, Radio, RadioGroup, FormControlButton } from '@mui/material';
+import { TextField, Button, Select, MenuItem, FormControl, InputLabel, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { addEmployee, editEmployee } from "../../service/employees"
 import { Dialog, DialogTitle, DialogContent } from '@mui/material';
@@ -37,7 +37,7 @@ const schema = yup.object(
         })).required('must be fill')
     })
 
-export default () => {
+const AddEmployee = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { state } = useLocation()
@@ -76,7 +76,7 @@ export default () => {
         const roleIdsArray = roles.map(r => r.roleId);
         var isExist = false
         roleIdsArray?.forEach((role) => {
-            if (role == i)
+            if (role === i)
                 isExist = true;
         })
         return isExist;
@@ -209,3 +209,4 @@ export default () => {
         </Dialog>
     </>
 }
+export default AddEmployee;

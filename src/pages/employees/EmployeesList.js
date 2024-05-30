@@ -14,16 +14,16 @@ import Swal from 'sweetalert2';
 import React from 'react';
 import { saveAs } from 'file-saver';
 import ExcelJS from 'exceljs';
-import { decode, typeDecode,PermissionToNumber } from "../../App";
+// import { decode, typeDecode,PermissionToNumber } from "../../App";
+import { PermissionToNumber } from "../../App";
 import AddRole from "../roles/AddRole"
 import '../../App.css'
 
 
-export default () => {
-    const { user, employees, roles } = useSelector(state => ({
+ const EmployeesList = () => {
+    const { user, employees } = useSelector(state => ({
         user: state.user.user,
         employees: state.employee.employees,
-        roles: state.role.roles
     }))
     //const userPermission = (decode(user, typeDecode.Permission))
     const levelPermission = PermissionToNumber(user)
@@ -35,11 +35,13 @@ export default () => {
         dispatch(getEmployees(true, search, navigate))
         //the above row will be replace to the next row at 30.05.2024
         // dispatch(getEmployees(userPermission != "NONE", search, navigate))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     useEffect(() => {
         dispatch(getEmployees(true, search, navigate))
         //the above row will be replace to the next row at 30.05.2024
         // dispatch(getEmployees(userPermission != "NONE", search, navigate))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search])
 
     const deleteEmployeeHandler = (employee) => {
@@ -138,3 +140,4 @@ export default () => {
         </div></>
     );
 }
+export default EmployeesList;

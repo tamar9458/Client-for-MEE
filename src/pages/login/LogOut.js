@@ -5,7 +5,7 @@ import { red, blue } from '@mui/material/colors';
 import Swal from 'sweetalert2';
 import { useEffect } from "react";
 
-export default () => {
+const LogOut = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     function logOut() {
@@ -33,3 +33,5 @@ export default () => {
     return <>
     </>
 }
+
+export default LogOut;

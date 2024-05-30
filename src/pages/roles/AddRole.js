@@ -7,13 +7,14 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { addRole } from "../../service/roles";
+//import "no-anonymous-default-export"
 
 const schema = yup.object().shape({
     description: yup.string().required('Role description is required')
 })
 
-export default () => {
-    const { register, handleSubmit, getValues, formState: { errors } } = useForm({
+const AddRole = () => {
+    const { register, getValues, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     })
     const dispatch = useDispatch()
@@ -37,3 +38,5 @@ export default () => {
         </>
     )
 }
+
+export default AddRole;
